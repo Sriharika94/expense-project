@@ -46,7 +46,7 @@ dnf install nodejs -y &>>$LOG_FILE
 VALIDATE $? "Install nodejs"
 
 id expense &>>$LOG_FILE
-if [ $? -ne o ]
+if [ $? -ne 0 ]
 then
     echo "expense user not exists...creating it"
     useradd expense &>>$LOG_FILE
