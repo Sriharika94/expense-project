@@ -37,13 +37,13 @@ echo "script started executing at $(date)" | tee -a $LOG_FILE
 CHECK_ROOT
 
 dnf install mysql-server -y &>>$LOG_FILE
-VALIDATE $? "Installing MYSQL server"
+VALIDATE $? "Installing MYSQL Server"
 
 systemctl enable mysqld &>>$LOG_FILE
-VALIDATE $? "Enabled MYSQL server"
+VALIDATE $? "Enabled MYSQL Server"
 
 systemctl start mysqld &>>$LOG_FILE
-VALIDATE $? "Started MYSQL server"
+VALIDATE $? "Started MYSQL Server"
 
 mysql -h mysql.sriharikalearningdevops.online -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
 if [ $? -ne 0 ]
