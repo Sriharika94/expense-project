@@ -43,7 +43,7 @@ systemctl enable mysqld &>>$LOG_FILE
 VALIDATE $? "Enabling mysql"
 
 systemctl start mysqld &>>$LOG_FILE
-VALIDATE $? "Starting mysql"
+VALIDATE $? "Starting mysql12"
 
 mysql -h mysql.sriharikalearningdevops.online -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
 if [ $? -ne 0 ]
