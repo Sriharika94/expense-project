@@ -37,15 +37,15 @@ echo "script started executing at $(date)" | tee -a $LOG_FILE
 CHECK_ROOT
 
 dnf install mysql-server -y &>>$LOG_FILE
-VALIDATE $? "Installing mysql server"
+VALIDATE $? "Installing MYSQL server"
 
 systemctl enable mysqld &>>$LOG_FILE
-VALIDATE $? "Enabling mysql"
+VALIDATE $? "Enabled MYSQL server"
 
 systemctl start mysqld &>>$LOG_FILE
-VALIDATE $? "Started mysql"
+VALIDATE $? "Started MYSQL server"
 
-mysql -h mysql.mysql.sriharikalearningdevops.online -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
+mysql -h mysql.sriharikalearningdevops.online -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
 if [ $? -ne 0 ]
 then 
     echo "MYSQL root password is not setup, setting now" &>>LOG_FILE
